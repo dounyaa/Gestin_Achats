@@ -1,0 +1,70 @@
+{% extends "Achats/base.html" %}
+{% load static %}
+{% block content %}
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Commandes/</span> Ajouter</h4>
+
+              <!-- Basic Layout & Basic with Icons -->
+              <div class="row">
+                <!-- Basic Layout -->
+                <div class="col-xxl">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <form method="post" >
+                        {% csrf_token %}
+                        <div class="row mb-3">
+                          <label for="customer" class="col-sm-2 col-form-label">Client</label>
+                          <div class="col-sm-10">
+                              <select id="customer" name="customer" class="form-select">
+                                <option value="">Choisissez un Client</option>
+                                  {% for client in clients %}
+                                      <option value="{{ client.pk }}">{{ client.name }}</option>
+                                  {% endfor %}
+                              </select>
+
+                          </div>
+                        </div>
+                      <div class="row mb-3">
+                          <label for="product" class="col-sm-2 col-form-label">Produit</label>
+                          <div class="col-sm-10">
+                              <select id="product" name="product" class="form-select">
+                                <option value="">Choisissez un Produit</option>
+                                  {% for product in products %}
+                                      <option value="{{ product.pk }}">{{ product.name }}</option>
+                                  {% endfor %}
+                              </select>
+
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="quantity">Quantité</label>
+                          <div class="col-sm-10">
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="number"
+                                id="quantity"
+                                class="form-control"
+                                name="quantity"
+                                value="{{ form.quantity }}"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row justify-content-end">
+                          <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+{% endblock %}

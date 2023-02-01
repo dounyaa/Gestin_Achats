@@ -1,0 +1,51 @@
+{% extends "Achats/base.html" %}
+{% load static %}
+{% block content %}
+
+          <!-- Content wrapper -->
+          <div class="container-xxl flex-grow-1 container-p-y">
+
+
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Commandes/</span> Afficher Detail</h4>
+            <div class="row">
+            <!-- Inline text elements -->
+            <div class="col">
+            <div class="card mb-4">
+            <h5 class="card-header">Détails de la commande #{{ order.pk }}</h5>
+            <div class="card-body">
+            <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td class="align-middle"><small class="text-light fw-semibold">Client:</small></td>
+                <td class="py-3">
+                  <p class="mb-0"> {{ order.customer }}</p>
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle"><small class="text-light fw-semibold">Produits:</small></td>
+                <td class="py-3">
+                  {% for order_product in order.orderproduct_set.all %}
+                    <p class="mb-0"> {{ order_product.product }} - Quantité: {{ order_product.quantity }}</p>
+                {% endfor %}
+                </td>
+              </tr>
+              <tr>
+                <td class="align-middle"><small class="text-light fw-semibold">Prix total:</small></td>
+                <td class="py-3">
+                  <p class="mb-0"><mark>{{ order.total_price }}</mark></p>
+                </td>
+              </tr>
+              <tr>
+              
+            </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+            
+              
+            </div>
+          <!-- Content wrapper -->
+{% endblock %}
