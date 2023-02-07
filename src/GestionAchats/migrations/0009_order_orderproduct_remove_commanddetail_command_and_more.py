@@ -48,5 +48,4 @@ class Migration(migrations.Migration):
             name='products',
             field=models.ManyToManyField(through='GestionAchats.OrderProduct', to='GestionAchats.product'),
         ),
-        migrations.RunSQL('INSERT INTO auth_user (password, username, email) VALUES ("pbkdf2_sha256$390000$didGCN053dp1N2xsHzP9Fa$RnKk/WChpwBNQRwcOxvG7L+FICc5QFDtKjfhVCAoK1g=", "admin", "admin@gmail.com");')
     ]
