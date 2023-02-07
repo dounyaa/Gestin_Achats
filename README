@@ -1,0 +1,8 @@
+## Etapes pour lancer le projet
+## Exécuter les commandes suivantes en ordre
+- source .env/bin/activate
+- cd src/
+- python manage.py migrate
+- python manage.py createsuperuser --username=admin --email=admin@gmail.com
+enter password : pass123word789
+- python manage.py runserver
